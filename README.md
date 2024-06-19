@@ -1,0 +1,2 @@
+# ISIC2018_Seg_Research_Proj
+ My take on task 1 of the ISIC 2018 image segmentation challenge, where I create semantic segmentation masks of images of skin lesions based on the 2018 ISIC data set. This is my practice and implementation of the UNet neural network architecture for computer vision and image segmentaiton in preparation for my various projects with the TAMU SR Laboratory, where I will be hoping to do more computer vision and AI research.
