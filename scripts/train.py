@@ -10,7 +10,7 @@ from unet_model import UNet  # Make sure the model is correctly imported
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # Initialize the model, criterion, and optimizer
-model = UNet()
+model = UNet().to(device)  # Move the model to the device
 criterion = nn.BCEWithLogitsLoss()
 optimizer = optim.Adam(model.parameters(), lr=1e-4)
 
@@ -24,8 +24,8 @@ for epoch in range(num_epochs):
     # Use tqdm to create a progress bar for the training data loader
     with tqdm(total=len(train_loader), desc=f"Epoch {epoch+1}/{num_epochs}", unit='batch') as pbar:
         for images, masks in train_loader:
-            images = images.to(device)
-            masks = masks.to(device)
+            images = images.to(device)  # Move inputs to the device
+            masks = masks.to(device)    # Move targets to the device
 
             # Zero the parameter gradients
             optimizer.zero_grad()
@@ -48,8 +48,8 @@ for epoch in range(num_epochs):
     val_loss = 0.0
     with torch.no_grad():
         for images, masks in val_loader:
-            images = images.to(device)
-            masks = masks.to(device)
+            images = images.to(device)  # Move inputs to the device
+            masks = masks.to(device)    # Move targets to the device
 
             outputs = model(images)
             loss = criterion(outputs, masks)
