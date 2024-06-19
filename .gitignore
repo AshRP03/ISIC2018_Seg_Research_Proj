@@ -1,0 +1,13 @@
+# Python
+*.pyc
+__pycache__/
+
+# Virtual Environment
+venv/
+skin_lesion_env/
+
+# Data
+data/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
