@@ -36,7 +36,7 @@ def visualize(image, pred, img_name):
 # Run the model on the test dataset
 with torch.no_grad():
     for images, img_names in test_loader:
-        images = images.to(device)
+        images = images.to(device)  # Move inputs to the device
         outputs = model(images)
         preds = torch.sigmoid(outputs) > 0.5
         for i in range(images.size(0)):
